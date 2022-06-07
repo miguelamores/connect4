@@ -1,0 +1,17 @@
+.button-container {
+  margin: 10px;
+}
+
+.play-reset-btn {
+  background-color: #ffffff;
+  border-radius: 3px;
+  padding: 4px;
+}
+
+.over-state {
+  background-color: green;
+}
+
+.ongoing-state {
+  background-color: red;
+}
