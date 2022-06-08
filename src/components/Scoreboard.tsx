@@ -1,36 +1,30 @@
 import React, { FC } from "react";
 import { connect } from "react-redux";
-import "./Button.css";
-import { WinningCoordinates } from "../reducers/game/selectors/testCombination";
+import "./Scoreboard.css";
 
 import { RootState } from "../reducers";
-import { getWinner } from "../reducers/selectors";
 
 interface Props {
-  onClick?: () => void;
-  winner?: WinningCoordinates | null;
-  text?: string;
+  count?: number;
 }
 
-const Scoreboard: FC<Props> = ({ text = "play again", winner }) => {
+const Scoreboard: FC<Props> = ({ count }) => {
   return (
     <div>
-      <table>
+      <table className="table-container">
         <tr>
           <th>Red</th>
           <th>Yellow</th>
         </tr>
         <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
+          <td>0 wins</td>
+          <td>0 wins</td>
         </tr>
       </table>
     </div>
   );
 };
 
-const mapState = (state: RootState) => ({
-  winner: getWinner(state),
-});
+const mapState = (state: RootState) => ({});
 
 export default connect(mapState, null)(Scoreboard);
