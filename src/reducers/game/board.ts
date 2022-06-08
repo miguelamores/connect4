@@ -1,5 +1,5 @@
 import { Color } from "../../types";
-import { Action } from "../../actions/types";
+import { Action, ActionReset } from "../../actions/types";
 import { dropCoin } from "./dropCoin";
 import { getInitialBoard } from "./getInitialBoard";
 
@@ -9,12 +9,14 @@ const initialState: BoardState = getInitialBoard();
 
 export const reducer = (
   state: BoardState = initialState,
-  action: Action
+  action: Action | ActionReset
 ): BoardState => {
   switch (action.type) {
     case "DROP_COIN":
       const { column, color } = action.payload;
       return dropCoin(state, column, color);
+    case "RESET_BOARD":
+      return (state = initialState);
 
     default:
       return state;

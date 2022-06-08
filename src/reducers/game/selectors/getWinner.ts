@@ -9,7 +9,7 @@ import { testCombination } from "./testCombination";
 export function getWinner(state: LocalState) {
   for (const combination of winningCombinations) {
     const winner = testCombination(state.board, combination);
-
+    console.log(winner);
     if (winner) {
       return winner;
     }
